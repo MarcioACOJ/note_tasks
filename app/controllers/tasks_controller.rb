@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.order(:due_date)
+    @tasks = Task.only_parents.order(:due_date)
   end
 
   # GET /tasks/new
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:description, :due_date, :done)
+      params.require(:task).permit(:description, :due_date, :done, :parent_id)
     end
 
 end
