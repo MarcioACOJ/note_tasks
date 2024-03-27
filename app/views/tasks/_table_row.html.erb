@@ -1,0 +1,18 @@
+<tr class='border-top'>
+    <td>
+        <span class='text-<%= task.css_color %>'><%= task.symbol %></span>
+
+        <% if task.done? %>
+            <s class='text-muted'><%= task.description %></s>
+        <%else%>
+            <%= task.description %>
+        <% end %>
+    </td>
+    
+    <td><%= task.due_date %></td>
+
+    <td class='links_content'>
+        <%= link_to 'Editar', edit_task_path(task), class: 'btn btn-secondary btn-sm', style: 'margin-right: 5px;'%>
+        <%= button_to 'Apagar', task, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Você tem certeza?'} %>
+    </td>
+</tr>

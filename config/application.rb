@@ -11,6 +11,12 @@ module NoteTasks
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    config.i18n.default_locale = 'pt-BR'
+
+    config.time_zone = 'Brasilia'
+
+    Time::DATE_FORMATS[:default] = "%d/%m/%Y %H:%M"
+    Date::DATE_FORMATS[:default] = "%d/%m/%Y"
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.

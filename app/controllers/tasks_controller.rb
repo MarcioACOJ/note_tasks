@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(:due_date)
   end
 
   # GET /tasks/new
@@ -18,6 +18,7 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
+    
       if @task.save
         redirect_to tasks_path, notice: "Tarefa criada com sucesso."
       else
